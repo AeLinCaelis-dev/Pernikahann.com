@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generator Link Undangan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #a0845c;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #cbb26a;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 10px; /* Tambahkan margin bawah untuk tombol */
+    }
+    button:hover {
+      background-color: #a0845c;
+    }
+    #generatedLink {
+      margin-top: 25px;
+      padding: 15px;
+      background-color: #e9e9e9;
+      border-radius: 4px;
+      word-wrap: break-word;
+    }
+    #generatedLink a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    #copyButton {
+        margin-top: 10px;
+        background-color: #5cb85c;
+    }
+    #copyButton:hover {
+        background-color: #4cae4c;
+    }
+    #clearCommentsButton {
+        background-color: #dc3545; /* Warna merah untuk tombol hapus */
+        margin-top: 20px; /* Jarak dari elemen di atasnya */
+    }
+    #clearCommentsButton:hover {
+        background-color: #c82333;
+    }
+
+    /* Styles for comment list in generate_link.html */
+    .comments-section {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+    .comments-section h2 {
+      text-align: center;
+      color: #a0845c;
+      margin-bottom: 20px;
+    }
+    #adminWishesContainer {
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      background-color: #fcfcfc;
+    }
+    .admin-comment-item {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+      position: relative;
+      border: 1px solid #e0e0e0;
+      display: flex; /* Menggunakan flexbox */
+      flex-wrap: wrap; /* Memungkinkan wrap pada item */
+      align-items: center; /* Pusatkan item secara vertikal */
+      gap: 10px; /* Jarak antar elemen dalam item */
+    }
+    .admin-comment-item:last-child {
+      margin-bottom: 0;
+    }
+    .admin-comment-author {
+      font-weight: bold;
+      color: #706554;
+      margin-right: auto; /* Mendorong elemen lain ke kanan */
+      flex-basis: 100%; /* Memastikan nama mengambil baris penuh di mobile */
+      text-align: left;
+    }
+    .admin-comment-text {
+      font-size: 0.95rem;
+      color: #555;
+      flex-basis: 100%; /* Memastikan teks mengambil baris penuh */
+      text-align: left;
+      margin-bottom: 8px; /* Tambahkan margin bawah */
+    }
+    .admin-comment-date {
+      font-size: 0.8rem;
+      color: #888;
+      text-align: right;
+      margin-left: auto; /* Mendorong tanggal ke kanan */
+      white-space: nowrap; /* Mencegah tanggal terpotong */
+    }
+    .admin-delete-btn {
+      /* Posisi absolut dihapus untuk penempatan flexbox */
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+      order: 1; /* Atur urutan agar tombol hapus di awal (kiri) */
+      margin-right: 10px; /* Jarak dari badge status */
+    }
+    .admin-delete-btn:hover {
+      opacity: 1;
+      background-color: #c82333;
+    }
+    .admin-attendance-status-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: white;
+      order: 2; /* Atur urutan agar badge di samping tombol hapus */
+      margin-right: auto; /* Mendorong badge ke kiri, menjauh dari nama */
+    }
+    .admin-attendance-status-badge.hadir {
+      background-color: #28a745; /* Green for hadir */
+    }
+    .admin-attendance-status-badge.tidak-hadir {
+      background-color: #ffc107; /* Orange for tidak-hadir */
+      color: #333;
+    }
+
+    /* Media Queries for responsiveness */
+    @media (min-width: 768px) {
+      .admin-comment-item {
+        align-items: flex-start; /* Mengatur item agar rata atas pada desktop */
+      }
+      .admin-comment-author {
+        flex-basis: auto; /* Mengatur ulang basis flex */
+        margin-right: 15px; /* Jarak yang lebih besar dari badge */
+      }
+      .admin-comment-text {
+        flex-basis: auto;
+        flex-grow: 1; /* Memungkinkan teks mengambil ruang yang tersedia */
+        margin-bottom: 0; /* Hapus margin bawah jika tidak diperlukan */
+      }
+      .admin-delete-btn {
+        order: 3; /* Pindahkan tombol hapus ke akhir */
+        margin-left: auto; /* Dorong ke kanan */
+        margin-right: 0;
+      }
+      .admin-attendance-status-badge {
+        order: 2; /* Posisikan badge di tengah */
+        margin-right: 15px; /* Jarak dari teks komentar */
+        margin-left: 0;
+      }
+      .admin-comment-date {
+        margin-left: 15px; /* Jarak dari teks komentar */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Generator Link Undangan Pernikahan</h1>
+    <p>Masukkan nama tamu yang akan diundang, lalu klik "Generate Link".</p>
+
+    <label for="guestNameInput">Nama Tamu:</label>
+    <input type="text" id="guestNameInput" placeholder="Contoh: Bapak Budi & Ibu Ani">
+
+    <button id="generateButton">Generate Link Undangan</button>
+
+    <div id="generatedLink" style="display: none;">
+      <p>Link Undangan Anda:</p>
+      <a href="#" id="displayLink"></a>
+      <button id="copyButton">Salin Link</button>
+    </div>
+
+    <button id="clearCommentsButton">Hapus Semua Komentar (Lokal)</button>
+
+    <div class="comments-section">
+      <h2>Daftar Komentar (Admin)</h2>
+      <div id="adminWishesContainer">
+        <!-- Komentar akan dimuat di sini -->
+        <p style="text-align: center; color: #888;">Tidak ada komentar yang tersimpan.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fungsi untuk menampilkan pesan sementara
+      function showMessageBox(message, type) {
+        const messageBox = document.createElement('div');
+        messageBox.textContent = message;
+        messageBox.style.cssText = `
+          position: fixed;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          z-index: 1000;
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+        `;
+        document.body.appendChild(messageBox);
+
+        setTimeout(() => {
+          messageBox.style.opacity = 1;
+        }, 10); // Small delay to trigger transition
+
+        setTimeout(() => {
+          messageBox.style.opacity = 0;
+          messageBox.addEventListener('transitionend', () => messageBox.remove());
+        }, 3000);
+      }
+
+      // Logika Generate Link
+      document.getElementById('generateButton').addEventListener('click', function() {
+        const guestName = document.getElementById('guestNameInput').value;
+        const baseUrl = window.location.origin + window.location.pathname.replace('generate_link.html', 'index.html');
+        const encodedGuestName = encodeURIComponent(guestName);
+        const fullLink = `${baseUrl}?to=${encodedGuestName}`;
+
+        const displayLink = document.getElementById('displayLink');
+        displayLink.href = fullLink;
+        displayLink.innerText = fullLink;
+        document.getElementById('generatedLink').style.display = 'block';
+      });
+
+      // Logika Salin Link
+      document.getElementById('copyButton').addEventListener('click', function() {
+        const linkToCopy = document.getElementById('displayLink').href;
+        const tempInput = document.createElement('input');
+        document.body.appendChild(tempInput);
+        tempInput.value = linkToCopy;
+        tempInput.select();
+        try {
+          document.execCommand('copy');
+          showMessageBox('Link berhasil disalin!', 'success');
+        } catch (err) {
+          console.error('Gagal menyalin link:', err);
+          showMessageBox('Gagal menyalin link. Silakan salin manual.', 'error');
+        } finally {
+          document.body.removeChild(tempInput);
+        }
+      });
+
+      // Logika Hapus Semua Komentar (Lokal)
+      document.getElementById('clearCommentsButton').addEventListener('click', function() {
+        localStorage.removeItem('weddingWishes');
+        renderAdminWishes(); // Render ulang daftar komentar setelah dihapus semua
+        showMessageBox('Semua komentar lokal telah dihapus!', 'info');
+        console.log('Komentar lokal telah dihapus.');
+      });
+
+      // --- Logika Admin untuk Menampilkan dan Menghapus Komentar Individual ---
+      const adminWishesContainer = document.getElementById('adminWishesContainer');
+
+      function renderAdminWishes() {
+        let wishes = JSON.parse(localStorage.getItem('weddingWishes')) || [];
+        if (!adminWishesContainer) return;
+
+        adminWishesContainer.innerHTML = ''; // Bersihkan ucapan yang ada
+
+        if (wishes.length === 0) {
+          adminWishesContainer.innerHTML = '<p style="text-align: center; color: #888;">Tidak ada komentar yang tersimpan.</p>';
+          return;
+        }
+
+        // Render ucapan dalam urutan terbalik (terbaru di atas)
+        wishes.slice().reverse().forEach((wish, originalIndex) => {
+          const newWish = document.createElement('div');
+          newWish.classList.add('admin-comment-item');
+
+          const statusClass = wish.attendance === 'hadir' ? 'hadir' : 'tidak-hadir';
+          const statusIcon = wish.attendance === 'hadir' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-times-circle"></i>';
+          const statusText = wish.attendance === 'hadir' ? 'Hadir' : 'Tidak Hadir';
+
+          // Menggunakan wishes.length - 1 - originalIndex untuk mendapatkan indeks asli sebelum dibalik
+          newWish.innerHTML = `
+            <button class="admin-delete-btn" data-index="${wishes.length - 1 - originalIndex}"><i class="fas fa-trash-alt"></i> Hapus</button>
+            <span class="admin-attendance-status-badge ${statusClass}">${statusIcon} ${statusText}</span>
+            <p class="admin-comment-author">${wish.name}</p>
+            <p class="admin-comment-text">${wish.message}</p>
+            <p class="admin-comment-date">${wish.date}</p>
+          `;
+          adminWishesContainer.appendChild(newWish);
+        });
+      }
+
+      // Fungsi untuk menghapus ucapan tertentu berdasarkan indeksnya
+      function deleteAdminWish(indexToDelete) {
+        let wishes = JSON.parse(localStorage.getItem('weddingWishes')) || [];
+        if (indexToDelete > -1 && indexToDelete < wishes.length) {
+          wishes.splice(indexToDelete, 1); // Hapus ucapan dari array
+          localStorage.setItem('weddingWishes', JSON.stringify(wishes)); // Perbarui localStorage
+          renderAdminWishes(); // Render ulang semua ucapan
+          showMessageBox('Komentar berhasil dihapus!', 'success');
+        }
+      }
+
+      // Delegasi event untuk tombol hapus di adminWishesContainer
+      if (adminWishesContainer) {
+        adminWishesContainer.addEventListener('click', function(e) {
+          if (e.target.classList.contains('admin-delete-btn')) {
+            const indexToDelete = parseInt(e.target.dataset.index);
+            deleteAdminWish(indexToDelete);
+          }
+        });
+      }
+
+      // Render komentar admin saat halaman dimuat
+      renderAdminWishes();
+    });
+  </script>
+</body>
+</html>

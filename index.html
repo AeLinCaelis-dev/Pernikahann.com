@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan Diana & Douglas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Font Imports */
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+    /* Colors - NEW EARTHY/NATURAL PALETTE */
+    :root {
+      --color-primary: #706554; /* Dark earthy brown for main titles, strong text */
+      --color-secondary: #D4B88D; /* Soft gold/beige for accents, names */
+      --color-tertiary: #A0845C; /* A slightly deeper gold/brown for subtle highlights/hover */
+      --color-text-dark: #333333; /* Standard body text */
+      --color-text-light: #666666; /* Lighter body text, placeholders */
+      --color-bg-cream: #FFFBF5; /* Main background for sections, very light */
+      --color-bg-light-beige: #FDF8F3; /* Slightly darker background for alternate sections/cards */
+      --color-border: #E0D9D0; /* Soft border color */
+      --color-shadow: rgba(0, 0, 0, 0.08); /* Soft shadow */
+      --color-overlay: rgba(112, 101, 84, 0.6); /* Sedikit lebih transparan */
+
+      /* Fonts */
+      --font-heading: 'Lora', serif; /* Menggunakan Lora */
+      --font-script: 'Great Vibes', cursive; /* For main names */
+      --font-body: 'Montserrat', sans-serif;
+    }
+
+    /* Reset & Base Styles */
+    body {
+      font-family: var(--font-body);
+      margin: 0;
+      padding: 0;
+      color: var(--color-text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-color: var(--color-bg-cream); /* Base background color */
+      /* Use the provided image as a subtle, repeating background texture */
+      background-image: url('assets/img/galeri2.png'); /* Using image_4b094f.png for subtle background */
+      background-repeat: repeat;
+      background-size: 250px; /* Adjust size for desired texture density */
+      background-attachment: fixed; /* Keeps the texture in place */
+      background-blend-mode: multiply; /* Blends the image with the background-color */
+      opacity: 0.9; /* Make the texture very subtle */
+    }
+
+    /* Typography Base */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading); /* Apply new heading font */
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: 2.8rem; } /* Mobile default */
+    h2 { font-size: 2rem; } /* Mobile default */
+    h3 { font-size: 1.5rem; } /* Mobile default */
+    p { font-size: 1rem; }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2.5rem; /* Adjusted for new heading font */
+        color: var(--color-primary);
+        font-family: var(--font-heading);
+    }
+    .section-title i {
+        margin-right: 10px;
+        color: var(--color-secondary);
+    }
+
+    /* Global Elements */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 60px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Class untuk mengontrol visibilitas konten utama */
+    .hidden {
+        display: none;
+    }
+
+    .section-bg-light {
+        background-color: var(--color-bg-cream); /* Main light background */
+    }
+    .section-bg-dark { /* Digunakan untuk quote section */
+        background-color: var(--color-bg-light-beige); /* Warna yang sedikit lebih gelap, konsisten dengan cards */
+    }
+
+
+    /* Custom Border Background for Cards (Simplified) */
+    .custom-border-bg {
+        background-color: var(--color-bg-light-beige); /* Slightly darker beige for cards */
+        border-radius: 8px; /* Softer rounded corners */
+        box-shadow: 0 5px 15px var(--color-shadow); /* Softer shadow */
+        padding: 30px;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--color-border); /* Simple border */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .custom-border-bg:hover {
+        transform: translateY(-3px); /* Less dramatic lift on hover */
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Slightly stronger shadow on hover */
+    }
+
+    /* Button Styling (Simplified) */
+    .btn {
+      display: inline-block;
+      background-color: var(--color-secondary); /* Soft gold button */
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 5px; /* Slightly less rounded */
+      text-decoration: none;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--color-tertiary); /* Deeper gold on hover */
+      transform: translateY(-2px);
+      box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    }
+
+    /* Modal Pembuka */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6); /* Slightly lighter overlay */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .modal-content {
+      background-color: var(--color-bg-cream);
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 90%;
+      box-shadow: 0 10px 30px var(--color-shadow);
+      position: relative;
+      border: 1px solid var(--color-border); /* Simple border */
+    }
+
+    .modal-pre-title {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      margin-bottom: 5px;
+    }
+
+    .modal-names {
+      font-family: var(--font-script);
+      font-size: 3.5rem;
+      color: var(--color-primary);
+      margin: 10px 0 15px;
+    }
+
+    .modal-date {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-text-light);
+      margin-bottom: 20px;
+    }
+
+    .modal-to {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      margin-bottom: 5px;
+    }
+
+    .modal-guest-name {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 30px;
+    }
+
+    .modal-button {
+      display: inline-block;
+      background-color: var(--color-secondary);
+      color: #fff;
+      padding: 14px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-button:hover {
+      background-color: var(--color-tertiary);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    .modal-button i {
+      margin-right: 8px;
+    }
+
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Default: center content vertically */
+      align-items: center;
+      color: #fff;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+      background-image: url('assets/img/galeri2.jpg'); /* Menggunakan galeri2.jpg */
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll;
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--color-overlay); /* Overlay matching new palette */
+      z-index: 1;
+    }
+
+    /* Removed .hero-couple-photo as requested */
+
+    .hero-text-content-wrapper {
+      position: static; /* Default: static for normal flow */
+      z-index: 2;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 2s ease-out; /* Fade in animation for text */
+      transform: none; /* Default: no transform */
+      top: auto; /* Default: no specific top positioning */
+      margin-bottom: 0; /* Default: no specific bottom margin */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .hero-pre-title {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 5px;
+    }
+
+    .couple-and-parents {
+        display: flex;
+        flex-direction: row; /* Default: Side-by-side */
+        justify-content: center; /* Center horizontally */
+        align-items: flex-start; /* Align items to the start of the cross-axis (top) */
+        gap: 30px; /* Space between groom/bride info blocks */
+        margin: 20px 0;
+        flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
+    }
+
+    .groom-info, .bride-info {
+        /* Hapus background-color, backdrop-filter, dan border sesuai permintaan */
+        padding: 15px 20px; /* Tetap pertahankan padding untuk spasi */
+        border-radius: 8px; /* Tetap pertahankan border-radius jika diinginkan untuk tampilan konsisten */
+    }
+
+    .groom-name, .bride-name {
+      font-family: var(--font-script);
+      font-size: 3.5rem; /* Large, elegant script font */
+      color: var(--color-secondary); /* Gold color for names */
+      margin: 0 0 10px;
+      line-height: 1.1;
+    }
+
+    .parents-title {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .parents-names {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .and-symbol {
+        font-family: var(--font-heading); /* Use heading font for '&' */
+        font-size: 2.5rem;
+        color: var(--color-secondary); /* Match accent color */
+        margin: 0; /* No margin as it's between blocks */
+    }
+
+    .hero-date {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: var(--color-secondary);
+      margin: 20px 0 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hero-location {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    /* Removed .hero-button styling as requested */
+
+    .scroll-down-indicator {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      z-index: 2;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-15px);
+      }
+      60% {
+        transform: translateY(-8px);
+      }
+    }
+
+
+    /* Quote Section */
+    .quote-section {
+      padding: 80px 20px;
+      background-color: var(--color-bg-light-beige); /* Match light beige background */
+      color: var(--color-text-dark);
+      font-family: var(--font-body);
+      font-style: italic;
+    }
+    .quote-text {
+      font-size: 1.25rem; /* Larger font size for quote */
+      max-width: 800px;
+      margin: 0 auto 20px;
+      line-height: 1.8;
+      color: var(--color-text-dark);
+    }
+    .quote-source {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-primary); /* Primary color for source */
+    }
+
+
+    /* Event Details Section */
+    .event-details-section {
+        background-color: var(--color-bg-cream);
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .event-details-section .container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px; /* Space between event boxes */
+    }
+    .event-box {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        max-width: 450px; /* Max width for single column on mobile */
+        margin: 0 auto; /* Center the box */
+    }
+    .event-box h3 {
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        color: var(--color-primary);
+        margin-bottom: 15px;
+    }
+    .event-box p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: var(--color-text-dark);
+        margin-bottom: 10px;
+    }
+    .event-box .btn-maps {
+        margin-top: 20px;
+        font-size: 0.95rem;
+    }
+
+    /* Gift & Wishes Section */
+    .gift-and-wishes-section {
+        background-color: var(--color-bg-cream);
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .gift-and-wishes-section .container {
+        display: flex;
+        flex-direction: column; /* Stack on mobile */
+        gap: 40px; /* Space between gift and wishes sections */
+        align-items: center; /* Memusatkan kedua kotak di mobile */
+    }
+
+    .gift-section, .send-wishes-section {
+        width: 100%;
+        max-width: 500px; /* Max width for these sections */
+        padding: 30px;
+        text-align: center; /* Kembali ke tengah untuk konten section */
+    }
+
+    .gift-section .section-title,
+    .send-wishes-section .section-title {
+      font-size: 2rem; /* Smaller title for these sections */
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Kembali ke tengah untuk judul */
+      text-align: center; /* Pastikan teks judul rata tengah */
+    }
+    .gift-section .section-title i,
+    .send-wishes-section .section-title i {
+      font-size: 1.8rem;
+    }
+
+    /* Bank Details */
+    .bank-details {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .bank-item {
+      background-color: rgba(255, 255, 255, 0.8); /* Lighter background for bank items */
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Kembali ke tengah untuk item bank */
+      text-align: center; /* Pastikan teks di dalam item bank rata tengah */
+    }
+    .bank-logo {
+      max-width: 80px;
+      margin-bottom: 15px;
+      align-self: center; /* Pusatkan logo */
+    }
+    .bank-item h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+    .bank-item p {
+      font-size: 0.95rem;
+      color: var(--color-text-dark);
+      margin-bottom: 5px;
+    }
+    .bank-item strong {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: var(--color-primary);
+      display: block;
+      margin-top: 5px;
+      word-break: break-all; /* Ensure long numbers wrap */
+    }
+    .btn-copy {
+      background-color: var(--color-tertiary); /* Deeper gold for copy button */
+      color: #fff;
+      padding: 10px 20px;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      align-self: center; /* Pusatkan tombol salin */
+    }
+    .btn-copy:hover {
+      background-color: var(--color-primary); /* Darker on hover */
+    }
+
+    /* Send Wishes Section */
+    .send-wishes-subtitle {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      margin-bottom: 25px;
+      text-align: center; /* Kembali ke tengah untuk subtitle */
+    }
+    .comment-box form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+      align-items: center;
+      text-align: center;
+    }
+    .comment-box input[type="text"],
+    .comment-box textarea,
+    .comment-box select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--color-border);
+      border-radius: 5px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-text-dark);
+      background-color: #fff;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
+    }
+    .comment-box input[type="text"]:focus,
+    .comment-box textarea:focus,
+    .comment-box select:focus {
+      outline: none;
+      border-color: var(--color-secondary);
+      box-shadow: 0 0 0 3px rgba(212, 184, 141, 0.3);
+    }
+    .comment-box input[type="text"]:hover,
+    .comment-box textarea:hover,
+    .comment-box select:hover {
+      border-color: var(--color-tertiary);
+    }
+    .comment-box textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .comment-box input::placeholder,
+    .comment-box textarea::placeholder {
+      color: var(--color-text-light);
+    }
+    .char-count {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      text-align: right;
+      margin-top: -10px;
+    }
+    .btn-submit-wish {
+      background-color: var(--color-secondary);
+      color: #fff;
+      padding: 12px 25px;
+      font-size: 1rem;
+      align-self: center;
+      width: auto;
+    }
+
+    /* Comments List */
+    .comments-list {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .comments-list h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--color-primary);
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+    }
+    .comments-list h3 i {
+      font-size: 1.4rem;
+      color: var(--color-secondary);
+    }
+    .comments-list h3 span {
+      font-family: var(--font-body);
+      font-weight: normal;
+      font-size: 1.2rem;
+      color: var(--color-text-light);
+    }
+
+    #wishes-container {
+      max-height: 300px;
+      overflow-y: auto;
+      padding-right: 15px;
+      text-align: left;
+    }
+
+    .comment-item {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .comment-author {
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+    .comment-text {
+      font-size: 0.95rem;
+      color: var(--color-text-dark);
+      margin-bottom: 10px;
+    }
+    .comment-date {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+      text-align: right;
+    }
+
+
+    /* Footer */
+    .footer-section {
+      background-color: var(--color-primary);
+      color: #fff;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
+    .footer-section p {
+      margin: 5px 0;
+    }
+
+    /* Responsive Design - Desktop (min-width: 1025px) */
+    @media (min-width: 1025px) {
+      h1 { font-size: 3.5rem; }
+      h2 { font-size: 2.5rem; }
+      h3 { font-size: 1.8rem; }
+      p { font-size: 1.05rem; }
+
+      .section { padding: 80px 0; }
+      .section-title { font-size: 3rem; }
+
+      .modal-content { max-width: 500px; padding: 50px; }
+      .modal-names { font-size: 4.5rem; }
+      .modal-guest-name { font-size: 1.8rem; }
+
+      .hero-section {
+        background-attachment: fixed;
+        justify-content: center;
+      }
+      .hero-text-content-wrapper {
+        position: static;
+        transform: none;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 0;
+      }
+      .hero-couple-photo {
+        width: 250px;
+        height: 250px;
+        border-width: 6px;
+      }
+      .couple-and-parents {
+          flex-direction: row;
+          justify-content: center;
+          gap: 50px;
+      }
+      .groom-name, .bride-name {
+          font-size: 4.5rem;
+      }
+      .and-symbol {
+          font-size: 3.5rem;
+      }
+      .hero-date {
+        font-size: 2.5rem;
+      }
+      .hero-location {
+        font-size: 1.3rem;
+      }
+
+      .quote-text { font-size: 1.5rem; }
+      .quote-source { font-size: 1.2rem; }
+
+      .event-details-section .container {
+          flex-direction: row;
+          justify-content: center;
+          align-items: flex-start;
+      }
+      .event-box {
+          max-width: 48%;
+          padding: 40px;
+      }
+      .event-box h3 { font-size: 2.2rem; }
+      .event-box p { font-size: 1.1rem; }
+
+      /* Gift & Wishes Section */
+      .gift-and-wishes-section .container {
+          gap: 60px;
+          flex-wrap: nowrap;
+          justify-content: space-around;
+      }
+      .gift-section, .send-wishes-section {
+          max-width: 480px;
+          padding: 40px;
+      }
+
+      .gift-section .section-title,
+      .send-wishes-section .section-title {
+        font-size: 2.5rem;
+      }
+
+      .bank-item {
+        max-width: 380px;
+        padding: 25px;
+      }
+      .bank-logo { max-width: 100px; }
+      .bank-item h3 { font-size: 1.4rem; }
+      .bank-item p { font-size: 1.05rem; }
+      .bank-item strong { font-size: 1.15rem; }
+      .btn-copy { font-size: 0.95rem; padding: 12px 25px; }
+
+      .send-wishes-subtitle { font-size: 1.05rem; }
+      .comment-box form {
+        gap: 18px;
+      }
+    }
+  
+    /* Membagi Amplop Digital dan Kirim Ucapan menjadi dua kolom */
+    .gift-and-wishes-section .container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    /* Atur ulang gift dan wishes */
+    .gift-section, .send-wishes-section {
+      width: 100%;
+      max-width: 48%;
+      min-width: 320px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Tinggi seimbang antar dua kotak */
+    .gift-section.custom-border-bg,
+    .send-wishes-section.custom-border-bg {
+      min-height: 450px; /* Menyamakan tinggi kedua kotak */
+      padding: 30px 25px;
+    }
+
+    /* Batas tinggi komentar agar tidak terlalu panjang */
+    #wishes-container {
+      max-height: 180px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    /* Tambahan padding agar simetris */
+    .comment-box form {
+      width: 100%;
+    }
+
+    /* Simetris untuk daftar komentar */
+    .comments-list {
+      margin-top: auto;
+      width: 100%;
+    }
+
+    /* Responsive Mobile (max-width: 767px) */
+    @media (max-width: 767px) { /* Changed to 767px to avoid overlap with tablet min-width */
+      .gift-and-wishes-section .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gift-section, .send-wishes-section {
+        max-width: 100%;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .gift-section .section-title,
+      .send-wishes-section .section-title {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .bank-item {
+        align-items: center;
+        text-align: center;
+      }
+
+      .bank-logo, .btn-copy {
+        align-self: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .send-wishes-subtitle {
+        text-align: center;
+      }
+
+      .comment-box form {
+        align-items: center;
+        text-align: center;
+      }
+
+      .comment-box input[type="text"],
+      .comment-box textarea,
+      .comment-box select {
+        text-align: left; /* Tetap rata kiri untuk input teks */
+      }
+
+      .btn-submit-wish {
+        align-self: center;
+      }
+
+      .comments-list {
+        text-align: center;
+      }
+
+      .comments-list h3 {
+        justify-content: center;
+      }
+
+      #wishes-container {
+        max-height: 300px;
+        text-align: left; /* Tetap rata kiri untuk teks komentar */
+      }
+
+      /* Penyesuaian khusus untuk Hero Section di Mobile */
+      .hero-section {
+        justify-content: flex-end; /* Memindahkan konten ke bagian bawah hero section */
+        padding-bottom: 5vh; /* Menambahkan sedikit padding di bagian bawah */
+      }
+
+      .hero-text-content-wrapper {
+        /* Mengatur ulang posisi agar tidak terpengaruh 'top' */
+        position: static; 
+        /* Menghapus transform */
+        transform: none; 
+        /* Menghapus padding atas */
+        padding-top: 0; 
+        /* Menghapus padding bawah */
+        padding-bottom: 0; 
+        /* Memberi sedikit jarak dari bawah */
+        margin-bottom: 20px; 
+        
+        /* Tambahan penting untuk flexbox di hero-text-content-wrapper */
+        display: flex;
+        flex-direction: column; /* Mengatur item agar bertumpuk secara vertikal */
+        align-items: center; /* Memusatkan konten horizontal */
+        justify-content: flex-end; /* Menempatkan konten di bagian bawah wrapper */
+        height: auto; /* Izinkan tingginya menyesuaikan konten */
+      }
+
+      .couple-and-parents {
+        /* Mengatur info pengantin berdampingan di mobile */
+        flex-direction: row; 
+        /* Pusatkan secara horizontal */
+        justify-content: center; 
+        /* Pusatkan item secara horizontal */
+        align-items: flex-start; /* Mengatur alignment vertikal ke atas untuk info orang tua */
+        width: 100%; /* Memastikan mengambil lebar penuh */
+        flex-wrap: wrap; /* Memungkinkan wrap jika layar sangat kecil */
+        
+        /* Tambahan untuk mengatasi tumpukan teks */
+        align-self: stretch; /* Memastikan setiap kolom mengambil tinggi yang sama */
+      }
+
+      .groom-info, .bride-info {
+        /* Memastikan keduanya mengambil ruang yang sama */
+        flex: 1; 
+        /* Menghindari terlalu kecil */
+        min-width: 140px; 
+        /* Memusatkan teks di dalam info */
+        text-align: center; 
+        
+        /* Tambahan untuk mengatasi tumpukan teks */
+        padding: 0 10px; /* Kurangi padding horizontal agar tidak terlalu lebar */
+        box-sizing: border-box; /* Pastikan padding dihitung dalam lebar */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Pastikan konten dimulai dari atas */
+        align-items: center; /* Pusatkan item secara horizontal */
+      }
+
+      /* Peningkatan ukuran font untuk mobile */
+      .hero-pre-title { font-size: 1.5rem; } /* Diperbesar */
+      .groom-name, .bride-name { font-size: 3.2rem; } /* Diperbesar */
+      .parents-title { font-size: 1rem; margin-top: 10px; } /* Diperbesar dan beri jarak dari nama */
+      .parents-names { font-size: 0.95rem; } /* Diperbesar */
+      .and-symbol { font-size: 2.8rem; margin: 0 10px; } /* Diperbesar */
+      .hero-date, .hero-location { font-size: 1.4rem; margin-top: 10px; margin-bottom: 10px; } /* Diperbesar */
+    }
+
+    /* Responsive Tablet (min-width: 768px and max-width: 1024px) */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .hero-section {
+        justify-content: center; /* Pusat vertikal untuk tablet */
+      }
+
+      .hero-text-content-wrapper {
+        position: static;
+        transform: none;
+        padding-top: 5vh; /* Sedikit padding atas untuk menggeser ke bawah dari atas */
+        padding-bottom: 5vh; /* Sedikit padding bawah */
+        margin-bottom: 0;
+      }
+
+      .couple-and-parents {
+        flex-direction: row; /* Berdampingan */
+        justify-content: center;
+        gap: 40px;
+      }
+
+      .groom-info, .bride-info {
+        flex: 1;
+        min-width: 180px; /* Ukuran minimum yang lebih besar dari mobile */
+        text-align: center;
+      }
+
+      /* Ukuran font untuk tablet */
+      .hero-pre-title { font-size: 1.3rem; } /* Diperbesar */
+      .groom-name, .bride-name { font-size: 4rem; } /* Diperbesar */
+      .parents-title, .parents-names { font-size: 1.05rem; } /* Diperbesar */
+      .and-symbol { font-size: 3.2rem; } /* Diperbesar */
+      .hero-date, .hero-location { font-size: 1.3rem; } /* Diperbesar */
+    }
+
+    /* New styles for the music control button */
+    .music-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1001; /* Ensure it's above other content */
+      background-color: var(--color-primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      /* HIDDEN BY DEFAULT */
+      display: none; 
+    }
+
+    .music-control:hover {
+      background-color: var(--color-tertiary);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div id="invitationModal" class="modal-overlay">
+    <div class="modal-content">
+      <p class="modal-pre-title">The Wedding Of</p>
+      <h2 class="modal-names">Sanjoyo & Ester</h2>
+      <p class="modal-to">Kepada Yth:</p>
+      <h3 class="modal-guest-name" id="guest-name">Tamu Undangan</h3>
+      <button class="modal-button" id="openInvitationBtn"><i class="fas fa-envelope-open-text"></i> Buka Undangan</button>
+    </div>
+  </div>
+
+  <div id="mainContent" class="main-content-wrapper hidden">
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-text-content-wrapper">
+        <p class="hero-pre-title">The Wedding Of</p>
+        <div class="couple-and-parents">
+          <div class="groom-info">
+            <h2 class="groom-name">Sanjoyo Siringoringoi</h2>
+            <p class="parents-title">Putra dari:</p>
+            <p class="parents-names">Ayah. Jonny Siringoringo<br>Ibuk. Naria Pardede</p>
+          </div>
+          <span class="and-symbol">&</span>
+          <div class="bride-info">
+            <h2 class="bride-name">Ester Sianturi</h2>
+            <p class="parents-title">Putri dari:</p>
+            <p class="parents-names">Ayah. (+) Wilmar Sianturi<br>Ibuk. Rumesti Naibaho</p>
+          </div>
+        </div>
+        <p class="hero-date">Selasa, 22 Juli 2025</p>
+        <p class="hero-location">Desa huta bagasan kecamatan bandar khalipah, <br>kabupaten Serdang Bedagai</p>
+        </div>
+      <div class="scroll-down-indicator">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <section class="quote-section section-bg-dark">
+      <p class="quote-text">"Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia."</p>
+      <p class="quote-source">~ Matius 19:6</p>
+    </section>
+
+    <section class="event-details-section section-bg-light">
+      <div class="container">
+        <h2 class="section-title">Save The Date</h2>
+        <div class="event-box custom-border-bg">
+          <h3>Pemberkatan & Resepsi</h3>
+          <p>Selasa, 22 Juli 2025</p>
+          <p>Pukul: 10.00 WIB Sampai Selesai</p>
+          <p>Lokasi: GMI Filadelfia mangga dua</p>
+          <a href="https://maps.app.goo.gl/XybhfJpVgNKNCP9j7?g_st=iw" class="btn btn-maps" target="_blank"><i class="fas fa-map-marked-alt"></i> Lihat di Google Maps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="gift-and-wishes-section section-bg-light">
+      <div class="container">
+        <div class="gift-section custom-border-bg">
+          <h2 class="section-title"><i class="fas fa-gift"></i> AMPLOP DIGITAL</h2>
+          <div class="bank-details">
+            <div class="bank-item">
+              <img src="assets/img/bank/mandiri.png" alt="Mandiri Logo" class="bank-logo">
+              <h3>Bank Mandiri</h3>
+              <p>A/N Sanjoyo</p>
+              <p>No. Rek: <strong id="mandiri-rek">1090019959105</strong></p>
+              <button class="btn btn-copy" data-clipboard-target="#mandiri-rek"><i class="far fa-copy"></i> Salin No. Rekening</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="send-wishes-section custom-border-bg">
+          <h2 class="section-title"><i class="fas fa-envelope-open-text"></i> KIRIM UCAPAN</h2>
+          <p class="send-wishes-subtitle">TULIS PESAN UNTUK KAMI</p>
+          <div class="comment-box">
+            <form id="wish-form">
+              <input type="text" id="wish-name" placeholder="Nama Anda" required>
+              <textarea id="wish-message" placeholder="Tulis Ucapan & Doa Anda" maxlength="500" required></textarea>
+              <div class="char-count" id="char-count">0/500</div>
+              <select id="attendance-status" required>
+                <option value="">Konfirmasi Kehadiran</option>
+                <option value="hadir">Hadir</option>
+                <option value="tidak-hadir">Tidak Hadir</option>
+              </select>
+              <button type="submit" class="btn btn-submit-wish">Kirim</button>
+            </form>
+          </div>
+          <div class="comments-list">
+            <h3><i class="far fa-comments"></i> Komentar (<span id="comment-count">0</span>)</h3>
+            <div id="wishes-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-section">
+      <p>Made By KaelinCaelis-Dev</p>
+      <p>© 2025 Undangan Pernikahan.</p>
+    </footer>
+  </div>
+
+  <audio id="background-music" loop>
+    <source src="assets/audio/LAGU.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button id="music-toggle-btn" class="music-control">
+    <i class="fas fa-music"></i>
+  </button>
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+</body>
+</html>

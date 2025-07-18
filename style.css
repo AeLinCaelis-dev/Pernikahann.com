@@ -1,0 +1,21 @@
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Colors - NEW EARTHY/NATURAL PALETTE */
+:root {
+  --color-primary: #000000; /* Dark earthy brown for main titles, strong text */
+  --color-secondary: #D4B88D; /* Soft gold/beige for accents, names */
+  --color-tertiary: #A0845C; /* A slightly deeper gold/brown for subtle highlights/hover */
+  --color-text-dark: #333333; /* Standard body text */
+  --color-text-light: #666666; /* Lighter body text, placeholders */
+  --color-bg-cream: #FFFBF5; /* Main background for sections, very light */
+  --color-bg-light-beige: #FDF8F3; /* Slightly darker background for alternate sections/cards */
+  --color-border: #E0D9D0; /* Soft border color */
+  --color-shadow: rgba(0, 0, 0, 0.08); /* Soft shadow */
+  --color-overlay: rgba(112, 101, 84, 0.7); /* Semi-transparent version of primary for hero */
+
+  /* Fonts */
+  --font-heading: 'Lora', serif; /* Menggunakan Lora */
+  --font-script: 'Great Vibes', cursive; /* For main names */
+  --font-body: 'Montserrat', sans-serif;
+}
